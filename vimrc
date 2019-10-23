@@ -1,5 +1,5 @@
 " Basic Behavior
-set number                         " line numbersi
+"set number                         " line numbersi
 set ruler                          " show line and column number of the cursor on right side of statusline
 set showmatch                      " highlight matching parenthesis / brackets [{()}]
 set visualbell                     " blink cursor on error, instead of beeping
@@ -20,6 +20,16 @@ set hlsearch                       " highlight matches
 set ignorecase                     " case insensitive search
 " put colorscheme files in ~/.vim/colors/
 colorscheme molokai   " murphy, slate, badwolf, solarized
+
+" save text folding
+augroup AutoSaveFolds
+  autocmd!
+  " view files are about 500 bytes
+  " bufleave but not bufwinleave captures closing 2nd tab
+  " nested is needed by bufwrite* (if triggered via other autocmd)
+  autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
+  autocmd BufWinEnter ?* silent! loadview
+augroup end
 
 " use filetype-based syntax highlighting, ftplugins, and indentation
 syntax enable
