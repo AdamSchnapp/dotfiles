@@ -19,7 +19,10 @@ set incsearch                      " search as characters are entered
 set hlsearch                       " highlight matches
 set ignorecase                     " case insensitive search
 " put colorscheme files in ~/.vim/colors/
-colorscheme molokai   " murphy, slate, badwolf, solarized
+set background=dark
+colorscheme base16-default-dark "molokai, murphy, slate, badwolf, solarized
+map <F4> :colorscheme torte<CR>
+map <F5> :colorscheme base16-default-dark<CR>
 
 " save text folding
 augroup AutoSaveFolds
