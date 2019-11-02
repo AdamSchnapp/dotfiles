@@ -1,3 +1,19 @@
+" Install plugins via the command vim +PlugInstall +qa
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure to use single quotes for plugins
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" install colorschemes; fetches https://github.com/chriskempson/base16-vim
+Plug 'chriskempson/base16-vim'
+
+
+
 " Basic Behavior
 "set number                         " line numbersi
 set ruler                          " show line and column number of the cursor on right side of statusline
@@ -20,9 +36,18 @@ set hlsearch                       " highlight matches
 set ignorecase                     " case insensitive search
 " put colorscheme files in ~/.vim/colors/
 set background=dark
-colorscheme base16-default-dark "molokai, murphy, slate, badwolf, solarized
+" colorscheme base16-tomorrow-night "base16-default-dark molokai, murphy, slate, badwolf, solarized
 map <F4> :colorscheme torte<CR>
 map <F5> :colorscheme base16-default-dark<CR>
+
+" get same colorscheme as terminal via .vimrc_background
+set t_Co=256
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+else
+  colorscheme base16-tomorrow-night 
+endif
 
 " save text folding
 augroup AutoSaveFolds
@@ -38,5 +63,4 @@ augroup end
 syntax enable
 filetype plugin indent on
 
-nmap <S-F> :set syntax=fortran<CR>:let b:fortran_fixed_source=!b:fortran_fixed_source<CR>:set syntax=text<CR>:set syntax=fortran<CR>
-
+"nmap <S-F> :set syntax=fortran<CR>:let b:fortran_fixed_source=!b:fortran_fixed_source<CR>:set syntax=text<CR>:set syntax=fortran<CR>
