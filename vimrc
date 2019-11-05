@@ -6,16 +6,12 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure to use single quotes for plugins
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
 " install colorschemes; fetches https://github.com/chriskempson/base16-vim
 Plug 'chriskempson/base16-vim'
 
 
-
 " Basic Behavior
-"set number                         " line numbersi
+set number                         " line numbersi
 set ruler                          " show line and column number of the cursor on right side of statusline
 set showmatch                      " highlight matching parenthesis / brackets [{()}]
 set visualbell                     " blink cursor on error, instead of beeping
@@ -42,8 +38,8 @@ map <F5> :colorscheme base16-default-dark<CR>
 
 " get same colorscheme as terminal via .vimrc_background
 set t_Co=256
+let base16colorspace=256
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
   source ~/.vimrc_background
 else
   colorscheme base16-tomorrow-night 
