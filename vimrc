@@ -9,6 +9,9 @@ call plug#begin('~/.vim/plugged')
 " install colorschemes; fetches https://github.com/chriskempson/base16-vim
 Plug 'chriskempson/base16-vim'
 
+" Use jk/kj for escape to normal
+inoremap jk <esc>
+inoremap kj <esc>
 
 " Basic Behavior
 set number                         " line numbersi
