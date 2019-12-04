@@ -22,6 +22,10 @@ set splitright                     " open new split panes to the right
 " Use filetype-based syntax highlighting, ftplugins, and indentation
 syntax enable
 filetype plugin indent on
+" Search down into subfolders
+" Provide tab-completion for file-related tasks
+set path+=** 
+set wildmenu
 " Tab Settings
 set tabstop=4                      " width that a tab character displays as
 set expandtab                      " convert <TAB> key-presses to spaces
