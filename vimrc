@@ -9,23 +9,30 @@ call plug#begin('~/.vim/plugged')
 " install colorschemes; fetches https://github.com/chriskempson/base16-vim
 Plug 'chriskempson/base16-vim'
 
+" install nerdtree
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
+
 " Use jk/kj for escape to normal
 inoremap jk <esc>
 inoremap kj <esc>
 
 " Basic Behavior
 set number                         " line numbersi
+set relativenumber
 set ruler                          " show line and column number of the cursor on right side of statusline
 set showmatch                      " highlight matching parenthesis / brackets [{()}]
 set visualbell                     " blink cursor on error, instead of beeping
 set splitright                     " open new split panes to the right
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+" Display all matching files when we tab complete
+set wildmenu
 " Use filetype-based syntax highlighting, ftplugins, and indentation
 syntax enable
 filetype plugin indent on
-" Search down into subfolders
-" Provide tab-completion for file-related tasks
-set path+=** 
-set wildmenu
 " Tab Settings
 set tabstop=4                      " width that a tab character displays as
 set expandtab                      " convert <TAB> key-presses to spaces
