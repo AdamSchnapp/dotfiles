@@ -74,3 +74,4 @@ syntax enable
 filetype plugin indent on
 
 "nmap <S-F> :set syntax=fortran<CR>:let b:fortran_fixed_source=!b:fortran_fixed_source<CR>:set syntax=text<CR>:set syntax=fortran<CR>
+set viminfo='20,\"90,h,%
