@@ -6,7 +6,8 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 shopt -s direxpand  # expand variables tab at interactive shell
 set -o vi # vim-style command line editing
 
-alias "ls=ls --color=auto"
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
 alias h=history
 alias e=exit
 alias c=clear
