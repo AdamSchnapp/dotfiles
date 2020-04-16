@@ -9,8 +9,8 @@ call plug#begin('~/.vim/plugged')
 " install colorschemes; fetches https://github.com/chriskempson/base16-vim
 Plug 'chriskempson/base16-vim'
 
-" install nerdtree
-Plug 'scrooloose/nerdtree'
+" install vim-vinegar (improves netrw)
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 
@@ -37,7 +37,7 @@ filetype plugin indent on
 set tabstop=4                      " width that a tab character displays as
 set expandtab                      " convert <TAB> key-presses to spaces
 set shiftwidth=4                   " number of spaces to use for each step of (auto) indent
-set softtabstop=4                  " backspace after pressing <TAB> will remove up to this many spaces
+set softtabstop=1                  " backspace after pressing <TAB> will remove up to this many spaces
 set autoindent                     " copy indent from current line when starting a new line
 set listchars=eol:&,tab:>-         " show <TAB> characters and EOL
 " Search Settings
@@ -75,3 +75,6 @@ filetype plugin indent on
 
 "nmap <S-F> :set syntax=fortran<CR>:let b:fortran_fixed_source=!b:fortran_fixed_source<CR>:set syntax=text<CR>:set syntax=fortran<CR>
 set viminfo='20,\"90,h,%
+
+" handle 08 and 09 as numbers when CTRL-A and CTRL-X
+set nrformats-=octal
