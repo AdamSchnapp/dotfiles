@@ -11,6 +11,9 @@ Plug 'chriskempson/base16-vim'
 
 " install vim-vinegar (improves netrw)
 Plug 'tpope/vim-vinegar'
+
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
 call plug#end()
 
 
@@ -24,7 +27,14 @@ set relativenumber
 set ruler                          " show line and column number of the cursor on right side of statusline
 set showmatch                      " highlight matching parenthesis / brackets [{()}]
 set visualbell                     " blink cursor on error, instead of beeping
-set splitright                     " open new split panes to the right
+
+" Split Pane Behavior
+set splitright                     " open vertically split panes to the right
+set splitbelow                     " open horizonatlly split panes below
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path+=**
