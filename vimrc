@@ -14,8 +14,14 @@ Plug 'tpope/vim-vinegar'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
+
+Plug 'tpope/vim-surround'
+Plug 'AndrewRadev/dsf.vim'  " vim-surround is great for craeting surrounding functions, but I didn't see how to delete them
+
 call plug#end()
 
+" set leader
+let mapleader = "\<Space>"
 
 " Use jk/kj for escape to normal
 inoremap jk <esc>
@@ -47,7 +53,7 @@ filetype plugin indent on
 set tabstop=4                      " width that a tab character displays as
 set expandtab                      " convert <TAB> key-presses to spaces
 set shiftwidth=4                   " number of spaces to use for each step of (auto) indent
-set softtabstop=1                  " backspace after pressing <TAB> will remove up to this many spaces
+set softtabstop=4                  " backspace after pressing <TAB> will remove up to this many spaces
 set autoindent                     " copy indent from current line when starting a new line
 set listchars=eol:&,tab:>-         " show <TAB> characters and EOL
 " Search Settings
@@ -88,3 +94,14 @@ set viminfo='20,\"90,h,%
 
 " handle 08 and 09 as numbers when CTRL-A and CTRL-X
 set nrformats-=octal
+
+" vim-tmux-runner config
+nnoremap <leader>sl :VtrSendLinesToRunner<cr>
+vnoremap <leader>sl :VtrSendLinesToRunner<cr>
+nnoremap <leader>or :VtrOpenRunner<cr>
+nnoremap <leader>kr :VtrKillRunner<cr>
+
+" vim-tmux-runner config for python
+let g:VtrStripLeadingWhitespace = 0
+let g:VtrClearEmptyLines = 1
+let g:VtrAppendNewline = 1
