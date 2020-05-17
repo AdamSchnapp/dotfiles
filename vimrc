@@ -11,6 +11,7 @@ Plug 'chriskempson/base16-vim'
 
 " install vim-vinegar (improves netrw)
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
@@ -41,6 +42,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" netrw file explorer config
+let g:netrw_liststyle = 3		   " tree listing format in netrw file explorer
+
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path+=**
@@ -62,6 +67,8 @@ set hlsearch                       " highlight matches
 set ignorecase                     " case insensitive search
 " put colorscheme files in ~/.vim/colors/
 set background=dark
+" backspace wonkeyness on my mac
+set backspace=indent,eol,start
 " colorscheme base16-tomorrow-night "base16-default-dark molokai, murphy, slate, badwolf, solarized
 map <F4> :colorscheme torte<CR>
 map <F5> :colorscheme base16-default-dark<CR>
@@ -105,3 +112,25 @@ nnoremap <leader>kr :VtrKillRunner<cr>
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
+
+" python file settings
+autocmd FileType python
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+	\ set encoding=utf-8
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"" javascript html and css spacing
+"au BufNewFile,BufRead *.js, *.html, *.css
+"    \ set tabstop=2
+"    \ set softtabstop=2
+"    \ set shiftwidth=2
+"" fortran/mos2k spacing
+"au BufNewFile,BufRead *.f
+"    \ set tabstop=3
+"    \ set softtabstop=3
+"    \ set shiftwidth=3
