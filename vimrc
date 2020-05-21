@@ -19,6 +19,9 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/dsf.vim'  " vim-surround is great for craeting surrounding functions, but I didn't see how to delete them
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
 " set leader
@@ -79,7 +82,7 @@ let base16colorspace=256
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 else
-  colorscheme base16-tomorrow-night 
+  colorscheme base16-tomorrow-night
 endif
 
 " save text folding
@@ -113,24 +116,10 @@ let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
 
-" python file settings
-autocmd FileType python
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix |
-	\ set encoding=utf-8
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-"" javascript html and css spacing
-"au BufNewFile,BufRead *.js, *.html, *.css
-"    \ set tabstop=2
-"    \ set softtabstop=2
-"    \ set shiftwidth=2
-"" fortran/mos2k spacing
-"au BufNewFile,BufRead *.f
-"    \ set tabstop=3
-"    \ set softtabstop=3
-"    \ set shiftwidth=3
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()
