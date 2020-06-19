@@ -32,7 +32,6 @@ inoremap jk <esc>
 inoremap kj <esc>
 
 " Basic Behavior
-set number                         " line numbersi
 set relativenumber
 set ruler                          " show line and column number of the cursor on right side of statusline
 set showmatch                      " highlight matching parenthesis / brackets [{()}]
