@@ -27,4 +27,4 @@ bldgreen=$(tput setaf 2) #'\e[1;32m' # Green
 bldcyn=$(tput setaf 6) #'\e[1;36m' # Cyan
 bldwht=$(tput setaf 7) #'\e[1;37m' # White
 txtrst=$(tput sgr0) #'\e[0m'    # Text Reset - Useful for avoiding color bleed
-export PS1="\[$bldred\]\u\[$txtrst\]@\[$bldwht\]\h\[$txtrst\]:\[$bldcyn\]\w\[$txtrst\]\[$bldgreen\]\$(parse_git_branch)$txtrst\]$ "
+export PS1="\[$bldred\]\u\[$txtrst\]@\[$bldwht\]\h\[$txtrst\]:\[$bldcyn\]\w\[$txtrst\]\[$bldgreen\]\$(parse_git_branch)\[$txtrst\]$ "
